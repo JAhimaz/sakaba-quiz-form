@@ -19,14 +19,14 @@ declare module '@emotion/react' {
 }
 
 export const DarkTheme: Theme = {
-  background: '#ededed',
-  foreground: '#1e1e1f',
+  background: '#151413',
+  foreground: '#1e1d1b',
   text: {
-    plain: '#1c1b1b',
+    plain: '#e8e9eb',
     plainWhite: '#e8e9eb',
     sub: '#333333',
-    dim: '#aeafb0',
-    highlight: '#fa8602',
+    dim: '#292826',
+    highlight: '#db6d2f',
   },
   success: '#13802c',
   error: '#d32f2f',

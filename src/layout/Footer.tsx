@@ -10,7 +10,7 @@ const Footer = () => {
       <span css={{
         color: theme.text.dim,
         fontStyle: 'italic',
-      }}>Ramen Projects | GMFlip</span>
+      }}>Sakaba Quiz</span>
     </FooterContainer>
   )
 }

@@ -75,17 +75,17 @@ const Navbar = () => {
   return (
     <NavbarContainer>
       <NavbarLeftItem>
-        <NavItem href='/' css={{ fontWeight: 700 }} className='secret'>Header</NavItem>
+          <img src='/logo.png' alt='logo' />
       </NavbarLeftItem>
       <NavbarRightItem>
-        <NavItem href='/about'>Item 1</NavItem>
+        <NavItem href='https://sakaba.xyz/' target='_blank' rel='noopener noreferrer'>SAKABA</NavItem>
       </NavbarRightItem>
       <NavbarButton onClick={handleExpandBtnPress}>
         <NavItem>Menu</NavItem>
       </NavbarButton>
       {isExpanded && (
         <NavbarPanel onClick={handleExpandBtnPress}>
-          <NavItem href='/about'>Item 1</NavItem>
+          <NavItem href='https://sakaba.xyz/'>SAKABA</NavItem>
         </NavbarPanel>  
       )}
     </NavbarContainer>

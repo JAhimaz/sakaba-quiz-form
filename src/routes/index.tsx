@@ -12,7 +12,7 @@ const Main = styled(
     <section className={`main ${className}`}>
       <Navbar />
       <Outlet />
-      <Footer />
+      {/* <Footer /> */}
     </section>
   )
 )`
