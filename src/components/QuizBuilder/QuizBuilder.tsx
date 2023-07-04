@@ -143,6 +143,37 @@ export const QuizBuilder = () => {
           ))}
           {/* Edit Button */}
           <Segment row justify="flex-end" gap="1rem">
+                        {/* Order up and Order down buttons */}
+            {quizData.length > 1 && (
+            <>
+            <Button onClick={() => {
+              const index = quizData.indexOf(item)
+              if(index === 0) return
+              const newQuizData = [...quizData]
+              const temp = newQuizData[index - 1]
+              newQuizData[index - 1] = newQuizData[index]
+              newQuizData[index] = temp
+              setQuizData(newQuizData)
+            }} css={{
+              marginTop: '1rem',
+              backgroundColor: useTheme().background,
+              color: 'white',
+            }}>↑</Button>
+            <Button onClick={() => {
+              const index = quizData.indexOf(item)
+              if(index === quizData.length - 1) return
+              const newQuizData = [...quizData]
+              const temp = newQuizData[index + 1]
+              newQuizData[index + 1] = newQuizData[index]
+              newQuizData[index] = temp
+              setQuizData(newQuizData)
+            }} css={{
+              marginTop: '1rem',
+              backgroundColor: useTheme().background,
+              color: 'white',
+            }}>↓</Button>
+            </>
+            )}
             <Button onClick={() => {
               setQuizItem({ ...item, id: "" })
               setQuizData(quizData.filter((i) => i.id !== item.id))
