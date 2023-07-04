@@ -130,15 +130,33 @@ export const QuizBuilder = () => {
         <QuizQuestionPanel key={item.id}>
           <Typography variant="lg" weight="semi-bold" color={useTheme().text.plain}>{item.q}</Typography>
           {item.choices.map((choice, index) => (
+                <div css={{
+                  backgroundColor: useTheme().background,
+                  padding: '0.5rem',
+                  borderRadius: '0.5rem',
+                  border: choice === item.choices[item.answer] ? `1px solid ${useTheme().success}` : `1px solid ${useTheme().background}`,
+                }}>
                 <Typography variant="md" weight="medium" color={
                   item.choices.indexOf(choice) === item.answer ? useTheme().success : useTheme().text.plain
-                }>{(index + 1) + ") "}{choice}</Typography>
+                }>{choice}</Typography>
+                </div>
           ))}
-          <Button onClick={() => setQuizData(quizData.filter((i) => i.id !== item.id))} css={{
-            backgroundColor: 'red',
-            color: 'white',
-            marginTop: '1rem'
-          }}>Delete Question</Button>
+          {/* Edit Button */}
+          <Segment row justify="flex-end" gap="1rem">
+            <Button onClick={() => {
+              setQuizItem({ ...item, id: "" })
+              setQuizData(quizData.filter((i) => i.id !== item.id))
+            }} css={{
+              marginTop: '1rem',
+              color: 'white',
+            }}>Edit Question</Button>
+            {/* Delete Button */}
+            <Button onClick={() => setQuizData(quizData.filter((i) => i.id !== item.id))} css={{
+              backgroundColor: 'red',
+              color: 'white',
+              marginTop: '1rem'
+            }}>Delete Question</Button>
+          </Segment>
           <Typography variant="sm" color={useTheme().text.dim}>{item.id}</Typography>
         </QuizQuestionPanel>
       ))}
