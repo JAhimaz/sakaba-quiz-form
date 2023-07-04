@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import styled from '@emotion/styled'
+import SakabaLogo from '@assets/images/logo.webp'
 
 const NavbarContainer = styled.nav`
   display: flex;
@@ -75,17 +76,27 @@ const Navbar = () => {
   return (
     <NavbarContainer>
       <NavbarLeftItem>
-          <img src='/logo.png' alt='logo' />
+
       </NavbarLeftItem>
       <NavbarRightItem>
-        <NavItem href='https://sakaba.xyz/' target='_blank' rel='noopener noreferrer'>SAKABA</NavItem>
+        <NavItem href='https://sakaba.xyz/' target='_blank' rel='noopener noreferrer'>
+          <img src={SakabaLogo} alt='logo' css={{
+            width: '12rem',
+            transition: 'all 0.1s ease-in-out',
+            ':hover': {
+              transition: 'all 0.1s ease-in-out',
+              filter: 'brightness(1.2)',
+              transform: 'scale(1.1)'
+            }
+          }} />
+        </NavItem>
       </NavbarRightItem>
       <NavbarButton onClick={handleExpandBtnPress}>
         <NavItem>Menu</NavItem>
       </NavbarButton>
       {isExpanded && (
         <NavbarPanel onClick={handleExpandBtnPress}>
-          <NavItem href='https://sakaba.xyz/'>SAKABA</NavItem>
+          <NavItem href='https://sakaba.xyz/' target='_blank' rel='noopener noreferrer'>SAKABA MAIN SITE</NavItem>
         </NavbarPanel>  
       )}
     </NavbarContainer>
